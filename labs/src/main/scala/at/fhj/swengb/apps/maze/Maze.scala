@@ -9,19 +9,19 @@ object Maze {
   /**
     * Creates a maze with all doors closed
     *
-    * @param nrX
-    * @param nrY
+    * @param sizeX
+    * @param sizeY
     * @param cellRect
     * @return
     */
-  def apply(nrX: Int, nrY: Int, cellRect: Rect): Maze = {
+  def apply(sizeX: Int, sizeY: Int, cellRect: Rect): Maze = {
     val arrays: Array[Cell] =
-      Array.tabulate(nrX, nrY)((y, x) => {
+      Array.tabulate(sizeX, sizeY)((y, x) => {
         val pos = Pos(x, y)
         val coord = Coord(x * cellRect.width, y * cellRect.height)
         Cell(pos, coord, cellRect)
       }).flatten
-    Maze(nrX, nrY, Pos(0, 0), Pos(nrX, nrY), arrays, cellRect)
+    Maze(sizeX, sizeY, Pos(0, 0), Pos(sizeX, sizeY), arrays, cellRect)
   }
 
 }
